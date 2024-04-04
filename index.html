@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+	<title>TAB Section With jQuery</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keyword" content="html,css,javascript">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, intaial-scale=5.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>	
+</head>
+<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	.tab-s{
+		padding: 100px 0;
+	}
+	.container{
+		width: 100%;
+		max-width: 1440px;
+		margin: 0 auto;
+	}
+	.tab-main {
+    padding: 50px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+	}
+	.tab-btn {
+    display: flex;
+    column-gap: 15px;
+    margin-bottom: 20px;
+	}
+	.tab-btn li {
+    list-style: none;
+	}
+	.tab-btn li a{
+    text-decoration: none;
+    color: #000;
+    padding: 15px;
+    display: inline-block;
+    border: 1px solid #000;
+	}
+	.content-box p {
+    line-height: 20px;
+	}
+	.content-box:not(.active){
+		display: none;
+	}
+</style>
+<body>
+<section class="tab-s">
+	<div class="container">
+		<div class="tab-main">
+			<ul class="tab-btn">
+				<li class="active"><a href="#tab1">Brand Audit</a></li>
+				<li><a href="#tab2">Brand Audit</a></li>
+				<li><a href="#tab3">Brand Audit</a></li>
+				<li><a href="#tab4">Brand Audit</a></li>
+			</ul>
+			<div class="content">
+				<div id="tab1" class="content-box active">
+					<p>We conduct an honest and unbiased review of your current brand, customer landscape, and other pertinent details to determine your strengths and weaknesses. Don’t have a brand? We’ll be with you every step of the way as you build it, ensuring you have everything you need to meet every objective.</p>
+				</div>
+				<div id="tab2" class="content-box">
+					<p>For effective branding, research is essential. One must look at competitors, the landscape of the industry, customer expectations and even internal elements. Through this research, points of differentiation can be determined and exploited. For example, if all the competition is speaking in industry jargon and specs, a savvy branding approach might be to humanize communications by focusing on dedication to the clients’ needs and goals.</p>
+				</div>
+				<div id="tab3" class="content-box">
+					<p>Any successful branding must be in your company’s authentic brand voice. If a tech company brands itself as a partner to its clients, the voice shouldn’t be a professorial stream of tech terms. More apt would be the voice of a friendly collaborator.</p>
+				</div>
+				<div id="tab4" class="content-box">
+					<p>Your brand is the language you speak everywhere you can. Consistency and repetition are essential. Corporate identity standards should be developed and vigilantly maintained. And though there may be exceptions for some audiences, your communications should be swathed in your branding message, be it a YouTube video, Instagram post, direct mail piece, eblast, or blog entry.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>	
+</body>
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$('.tab-btn a').on('click',function(e){
+		e.preventDefault();
+
+		if ( ! $(this).parent().hasClass('active') ) {
+
+			$('.tab-btn li.active').removeClass('active');
+			$('.content-box.active').hide().removeClass('active');
+
+			$(this).parent().addClass('active');
+
+			let tab = $(this).attr('href');
+			$(tab).slideDown().addClass('active');
+		}
+
+	})
+
+});
+</script>
+</html>
